@@ -156,7 +156,7 @@ func main() {
 	// The bigger absolute value up to 100, the outcome is closer regarding depth.
 	// If 0, the game is going to be draw.
 	//
-	// The next two integers are coordinates for the best move.
+	// The next two integers are coordinates for the best move, first row, then column.
 	//
 	board := newBoard()
 
