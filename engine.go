@@ -137,6 +137,27 @@ type UpdatedMove struct {
 }
 
 func main() {
+	// Example usage:
+	//
+	// ./engine 1 0 0 0 0 -1 0 0 0 1
+	//
+	// First input integer is player that searches for move (-1 for x or 1 for o).
+	// The rest of integers are fields on the board where
+	// -1 stands for x and 1 for o (0 for empty field).
+	// They are read left to right row by row from top to bottom.
+	//
+	// Example output:
+	//
+	// 0 0 0
+	//
+	// First integer is score for the best move.
+	// If it is positive, moving player is going to win.
+	// If negative, moving player is going to lose.
+	// The bigger absolute value up to 100, the outcome is closer regarding depth.
+	// If 0, the game is going to be draw.
+	//
+	// The next to integers are coordinates for the best move.
+	//
 	board := newBoard()
 
 	player, _ := strconv.Atoi(os.Args[1])
