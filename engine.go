@@ -186,7 +186,7 @@ func main() {
 		}
 	}
 
-	bestMoves := calculateBestMoves(player, board, potentialMoves)
+	bestMoves := calculateBestMoves(board, potentialMoves)
 
 	finalMove := calculateRandomMove(bestMoves)
 
@@ -206,13 +206,13 @@ func parseMoves(arguments []string) []ParsedMove {
 	return parsedMoves
 }
 
-func calculateBestMoves(player int, board iBoard, moves []Move) []Move {
+func calculateBestMoves(board iBoard, moves []Move) []Move {
 	updatedMoves := make([]UpdatedMove, 0, 9)
 	maxScore := -999
 	for i := 0; i < len(moves); i++ {
 		currentScore := moves[i].score
 		boardCopy := board.copy()
-		boardCopy.move(player, moves[i].coordinates)
+		boardCopy.move(1, moves[i].coordinates)
 		rowSums := boardCopy.getRowSums()
 		columnSums := boardCopy.getColumnSums()
 		diagonalSums := boardCopy.getDiagonalSums()
