@@ -186,7 +186,14 @@ func main() {
 		}
 	}
 
-	bestMoves := calculateBestMoves(board, potentialMoves)
+	// Make first move for ai player random for any non-losing outcome
+	// so it is harder for human player to predict.
+	bestMoves := make([]Move, 0, 9)
+	if len(parsedMoves) > 1 {
+		bestMoves = calculateBestMoves(board, potentialMoves)
+	} else {
+		bestMoves = potentialMoves
+	}
 
 	finalMove := calculateRandomMove(bestMoves)
 
